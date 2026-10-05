@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso Excessivo das Redes Sociais</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #5988FF;
+            color: #222222;
+        }
+
+        header {
+            min-height: 430px;
+            background-color: #5988FF;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 70px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            background-color: #FD98FB;
+            border-radius: 50%;
+            top: -130px;
+            left: -70px;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            background-color: #D6FF6B;
+            border-radius: 50px;
+            right: -70px;
+            bottom: -120px;
+            transform: rotate(25deg);
+        }
+
+        header h1 {
+            max-width: 850px;
+            margin: 0;
+            font-size: 52px;
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -2px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header p {
+            margin: 25px 0 0;
+            font-size: 21px;
+            font-weight: 600;
+            color: #222222;
+            background-color: #D6FF6B;
+            padding: 12px 24px;
+            border-radius: 999px;
+            position: relative;
+            z-index: 2;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1000px;
+            margin: -55px auto 60px;
+            padding: 55px;
+            background-color: #FFFFFF;
+            border-radius: 38px;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 20px 0 #FD98FB;
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 65px 0 25px;
+            color: #5988FF;
+            font-size: 30px;
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h2::before {
+            content: "";
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            background-color: #FD98FB;
+            border-radius: 5px;
+            transform: rotate(45deg);
+        }
+
+        h3 {
+            margin: 40px 0 18px;
+            color: #222222;
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        p {
+            margin: 18px 0;
+            color: #222222;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .imagem {
+            width: 100%;
+            max-width: 820px;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            margin: 35px auto;
+            border-radius: 30px;
+            border: 8px solid #D6FF6B;
+            box-shadow: 10px 10px 0 #FD98FB;
+            transition: transform 0.3s ease;
+        }
+
+        .imagem:hover {
+            transform: translate(-4px, -4px);
+        }
+
+        .destaque {
+            margin: 40px 0;
+            padding: 26px 30px;
+            background-color: #D6FF6B;
+            border: 4px solid #5988FF;
+            border-radius: 24px;
+            box-shadow: 8px 8px 0 #FD98FB;
+        }
+
+        .destaque p {
+            margin: 0;
+            color: #222222;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .destaque strong {
+            color: #5988FF;
+            font-weight: 800;
+        }
+
+        ul {
+            margin: 30px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            margin: 15px 0;
+            padding: 17px 20px 17px 58px;
+            background-color: #5988FF;
+            color: #FFFFFF;
+            border-radius: 18px;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 600;
+            box-shadow: 6px 6px 0 #D6FF6B;
+            transition: transform 0.2s ease;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 27px;
+            height: 27px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FD98FB;
+            color: #222222;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        li:hover {
+            transform: translateX(6px);
+        }
+
+        main .destaque:last-child {
+            margin-top: 55px;
+            background-color: #FD98FB;
+            border: 5px solid #5988FF;
+            box-shadow: 8px 8px 0 #D6FF6B;
+            text-align: center;
+        }
+
+        main .destaque:last-child p {
+            font-size: 25px;
+            font-weight: 800;
+            color: #222222;
+        }
+
+        main .destaque:last-child strong {
+            color: #222222;
+        }
+
+        footer {
+            background-color: #222222;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 0;
+            border-top: 12px solid #D6FF6B;
+        }
+
+        footer p {
+            margin: 0;
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                min-height: 350px;
+                padding: 60px 20px;
+            }
+
+            header h1 {
+                font-size: 38px;
+                letter-spacing: -1px;
+            }
+
+            header p {
+                font-size: 17px;
+            }
+
+            main {
+                width: 94%;
+                padding: 32px 24px;
+                margin-top: -35px;
+                border-radius: 28px;
+                box-shadow: 6px 6px 0 #FD98FB;
+            }
+
+            h2 {
+                font-size: 25px;
+                margin-top: 45px;
+            }
+
+            h3 {
+                font-size: 21px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            .imagem {
+                height: 280px;
+                border-width: 6px;
+                border-radius: 22px;
+                box-shadow: 6px 6px 0 #FD98FB;
+            }
+
+            .destaque {
+                padding: 22px;
+                box-shadow: 5px 5px 0 #FD98FB;
+            }
+
+            li {
+                padding: 15px 15px 15px 52px;
+                font-size: 15px;
+                box-shadow: 4px 4px 0 #D6FF6B;
+            }
+
+            main .destaque:last-child p {
+                font-size: 21px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                min-height: 310px;
+                padding: 50px 18px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            header p {
+                font-size: 15px;
+                padding: 10px 18px;
+            }
+
+            main {
+                width: 95%;
+                padding: 25px 18px;
+                border-radius: 22px;
+            }
+
+            h2 {
+                font-size: 22px;
+                gap: 10px;
+            }
+
+            h2::before {
+                width: 14px;
+                height: 14px;
+            }
+
+            h3 {
+                font-size: 19px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            .imagem {
+                height: 220px;
+                margin: 25px auto;
+            }
+
+            .destaque {
+                margin: 30px 0;
+                padding: 18px;
+            }
+
+            .destaque p {
+                font-size: 15px;
+            }
+
+            li {
+                font-size: 14px;
+                padding: 14px 12px 14px 48px;
+            }
+
+            main .destaque:last-child p {
+                font-size: 19px;
+            }
+
+            footer {
+                padding: 28px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Uso Excessivo das Redes Sociais</h1>
+        <p>Use a tecnologia com equilíbrio!</p>
+    </header>
+
+    <main>
+
+        <h2>O que é o uso excessivo das redes sociais?</h2>
+
+        <img
+            class="imagem"
+            src="https://nexo-uploads-beta.s3.amazonaws.com/wp-content/uploads/2023/11/29015505/closeup-de-celular-nas-maos-masculinas2028129_binary_321935.jpg"
+            alt="Pessoa usando o celular"
+        >
+
+        <p>
+            As redes sociais fazem parte da rotina de milhões de pessoas. Elas permitem
+            conversar com amigos e familiares, acompanhar notícias, compartilhar momentos,
+            estudar, trabalhar, pesquisar informações e encontrar conteúdos sobre praticamente
+            qualquer assunto. Quando utilizadas de forma consciente, podem ser ferramentas
+            importantes para comunicação, aprendizado e entretenimento.
+        </p>
+
+        <p>
+            O problema começa quando o uso deixa de ser uma escolha e passa a ocupar uma
+            parte excessiva do dia. Ficar constantemente verificando mensagens, vídeos,
+            curtidas e notificações pode fazer com que outras atividades importantes sejam
+            deixadas de lado. Em alguns casos, a pessoa percebe que pretendia usar o celular
+            por poucos minutos, mas acaba permanecendo conectada por horas.
+        </p>
+
+        <p>
+            Quando o uso das redes sociais começa a prejudicar o sono, os estudos, o trabalho,
+            a convivência com familiares e amigos ou a prática de atividades físicas, é
+            importante observar os próprios hábitos e buscar um uso mais equilibrado da tecnologia.
+        </p>
+
+        <div class="destaque">
+            <p>
+                <strong>Equilíbrio é a palavra-chave:</strong> a tecnologia pode ser uma
+                ferramenta muito útil, mas não deve ocupar o espaço de atividades importantes
+                para a saúde, o aprendizado, o descanso e a convivência com outras pessoas.
+            </p>
+        </div>
+
+        <h2>Como o excesso de celular pode afetar o dia a dia?</h2>
+
+        <p>
+            Passar muitas horas conectado pode alterar a maneira como organizamos nosso tempo.
+            Muitas vezes, o celular é utilizado para uma pequena pausa, mas essa pausa acaba
+            se transformando em longos períodos de navegação. Vídeos curtos, notificações e
+            atualizações constantes são especialmente fáceis de consumir sem perceber quanto
+            tempo passou.
+        </p>
+
+        <p>
+            Com isso, tarefas simples podem ser adiadas e atividades importantes podem perder
+            espaço na rotina. O excesso de celular também pode tornar mais difícil manter uma
+            rotina organizada, principalmente quando o aparelho é utilizado ao mesmo tempo
+            em que a pessoa estuda, trabalha ou conversa com alguém.
+        </p>
+
+        <ul>
+            <li>Redução do tempo dedicado aos estudos.</li>
+            <li>Dificuldade para manter a concentração por períodos maiores.</li>
+            <li>Menor convivência com familiares e amigos.</li>
+            <li>Redução da prática de atividades físicas.</li>
+            <li>Atrasos em compromissos e tarefas.</li>
+            <li>Sensação de perda de tempo ao final do dia.</li>
+            <li>Dificuldade para ficar longe do celular.</li>
+            <li>Interrupção frequente de tarefas por causa de notificações.</li>
+            <li>Hábito de verificar o celular mesmo sem receber novas mensagens.</li>
+        </ul>
+
+        <h2>Redes sociais e sono</h2>
+
+        <p>
+            O uso do celular durante a noite pode atrapalhar uma rotina adequada de descanso.
+            Muitas pessoas continuam navegando pelas redes sociais quando já deveriam estar
+            dormindo. Dessa maneira, acabam reduzindo o tempo destinado ao sono sem perceber.
+        </p>
+
+        <p>
+            Além do tempo perdido, mensagens, notificações, vídeos e outros conteúdos podem
+            manter a atenção voltada para o celular. Isso pode dificultar o momento de relaxar
+            e preparar o corpo e a mente para dormir.
+        </p>
+
+        <img
+            class="imagem"
+            src="https://bemestar.istoe.com.br/wp-content/uploads/sites/23/2023/11/redes-sociais-e-saude-mental-nos-adolescentes-3.png"
+            alt="Redes sociais e saúde mental dos adolescentes"
+        >
+
+        <p>
+            Por isso, criar um período sem celular antes de dormir pode ajudar a estabelecer
+            uma rotina mais tranquila. Deixar o aparelho distante da cama, diminuir as
+            notificações e evitar conteúdos muito estimulantes à noite são atitudes simples
+            que podem facilitar a criação de bons hábitos de sono.
+        </p>
+
+        <h3>O que é a insônia?</h3>
+
+        <p>
+            A insônia é uma dificuldade relacionada ao sono. Pode envolver problemas para
+            iniciar o sono, permanecer dormindo ou ter um descanso considerado satisfatório.
+            Uma rotina desorganizada e hábitos inadequados antes de dormir podem contribuir
+            para dificuldades de sono.
+        </p>
+
+        <p>
+            Quando uma pessoa dorme pouco ou tem noites de sono de baixa qualidade, pode
+            apresentar mais cansaço durante o dia e encontrar maior dificuldade para estudar,
+            trabalhar ou manter a concentração. Por isso, cuidar do sono também significa
+            cuidar da disposição e da qualidade de vida.
+        </p>
+
+        <h2>Redes sociais e concentração</h2>
+
+        <p>
+            A troca constante entre aplicativos, mensagens, vídeos e notificações pode
+            dificultar períodos prolongados de atenção. Durante os estudos, por exemplo,
+            uma simples notificação pode interromper a concentração e fazer com que o
+            estudante leve mais tempo para voltar à atividade.
+        </p>
+
+        <p>
+            Também é comum começar uma atividade no celular com um objetivo específico e,
+            depois, acabar acessando outros aplicativos. Uma pesquisa rápida pode se
+            transformar em uma sequência de vídeos, mensagens e publicações, desviando
+            a atenção da tarefa inicial.
+        </p>
+
+        <p>
+            Por isso, durante momentos de estudo, é interessante deixar o celular longe do
+            alcance, silenciar notificações e estabelecer períodos específicos para consultar
+            as redes sociais. Dessa forma, o estudante consegue dedicar sua atenção a uma
+            atividade de cada vez.
+        </p>
+
+        <h2>Impactos nos estudos</h2>
+
+        <p>
+            O excesso de tempo nas redes sociais pode competir com o tempo dedicado à leitura,
+            às tarefas escolares, à revisão dos conteúdos e à preparação para provas. Quando
+            o celular interrompe constantemente os estudos, uma atividade que poderia ser
+            concluída rapidamente pode levar muito mais tempo.
+        </p>
+
+        <p>
+            O problema não está necessariamente em utilizar a internet. Afinal, existem
+            vídeos educativos, plataformas de aprendizagem, bibliotecas digitais e diversos
+            recursos que podem ajudar nos estudos. A questão está em saber diferenciar o
+            uso da tecnologia para aprender do uso excessivo para entretenimento.
+        </p>
+
+        <p>
+            Organizar horários para estudar e para utilizar as redes sociais pode ajudar a
+            melhorar o rendimento. Pequenas mudanças na rotina, como estudar por períodos
+            sem notificações e fazer pausas planejadas, podem facilitar a concentração e
+            aumentar a produtividade.
+        </p>
+
+        <h2>Impactos nos relacionamentos</h2>
+
+        <p>
+            As redes sociais facilitam a comunicação e permitem manter contato com pessoas
+            que estão longe. Porém, o excesso de uso pode diminuir a qualidade das interações
+            presenciais. Durante uma conversa, por exemplo, permanecer constantemente olhando
+            para o celular pode transmitir falta de atenção à pessoa que está ao lado.
+        </p>
+
+        <p>
+            Isso pode acontecer até mesmo em momentos importantes, como refeições em família,
+            encontros com amigos ou conversas entre pais e filhos. Quando o celular ocupa
+            toda a atenção, a presença física não significa necessariamente uma verdadeira
+            participação naquele momento.
+        </p>
+
+        <p>
+            Reservar momentos para conversar pessoalmente, fazer refeições sem o celular,
+            participar de atividades em família e praticar atividades em grupo são atitudes
+            simples que ajudam a fortalecer os relacionamentos.
+        </p>
+
+        <h2>Como utilizar a tecnologia de maneira mais saudável?</h2>
+
+        <p>
+            Utilizar a tecnologia de maneira saudável não significa abandonar o celular ou
+            deixar de utilizar as redes sociais. Significa aprender a controlar o tempo de
+            uso e perceber quando o aparelho está começando a atrapalhar outras áreas da vida.
+        </p>
+
+        <ul>
+            <li>Estabeleça horários para utilizar as redes sociais.</li>
+            <li>Evite usar o celular durante as refeições.</li>
+            <li>Evite ficar conectado pouco antes de dormir.</li>
+            <li>Desative notificações que não sejam importantes.</li>
+            <li>Faça pausas durante períodos prolongados de uso.</li>
+            <li>Pratique atividades físicas e atividades ao ar livre.</li>
+            <li>Reserve momentos para conversar pessoalmente com outras pessoas.</li>
+            <li>Priorize os estudos e outras responsabilidades antes do entretenimento.</li>
+            <li>Observe quanto tempo você passa diariamente diante das telas.</li>
+            <li>Deixe o celular longe durante os momentos que exigem concentração.</li>
+            <li>Evite utilizar várias telas ao mesmo tempo quando estiver estudando.</li>
+            <li>Reserve momentos do dia para ficar completamente desconectado.</li>
+        </ul>
+
+        <h2>Sinais de que é hora de repensar os hábitos</h2>
+
+        <p>
+            Alguns comportamentos podem indicar que o uso do celular está ocupando espaço
+            demais na rotina. Entre eles estão a dificuldade de ficar longe do aparelho,
+            o uso durante atividades importantes, a perda de horas de sono e a sensação
+            de necessidade constante de verificar notificações.
+        </p>
+
+        <p>
+            Outro sinal é perceber que o celular está sendo utilizado automaticamente,
+            mesmo quando não existe uma necessidade específica. Pegar o aparelho várias
+            vezes durante uma conversa, uma aula, uma refeição ou enquanto realiza uma
+            tarefa pode indicar que o hábito está se tornando automático.
+        </p>
+
+        <p>
+            Também vale observar se o uso das redes sociais está causando problemas na
+            rotina. Se a pessoa começa a deixar de estudar, dormir, praticar atividades
+            físicas ou conviver com outras pessoas por causa do celular, talvez seja
+            necessário estabelecer novos limites.
+        </p>
+
+        <h2>Conclusão</h2>
+
+        <p>
+            A tecnologia não precisa ser vista como uma inimiga. Celulares e redes sociais
+            podem facilitar a comunicação, o aprendizado, o trabalho e o acesso à informação.
+            O mais importante é desenvolver hábitos equilibrados e utilizar esses recursos
+            de acordo com as necessidades de cada momento.
+        </p>
+
+        <p>
+            Utilizar o celular com consciência significa saber quando conectar e,
+            principalmente, quando desconectar. Dormir bem, estudar, praticar atividades
+            físicas, conversar com outras pessoas, desenvolver novos interesses e aproveitar
+            momentos fora das telas também fazem parte de uma vida equilibrada.
+        </p>
+
+        <p>
+            Mais do que simplesmente diminuir o tempo de tela, é importante pensar no que
+            estamos fazendo com o tempo que temos. A tecnologia deve estar a serviço das
+            pessoas, ajudando a tornar a vida mais prática e não ocupando todo o espaço
+            que poderia ser utilizado para aprender, conviver, descansar e aproveitar
+            experiências reais.
+        </p>
+
+        <div class="destaque">
+            <p>
+                <strong>Você controla o seu celular ou o celular controla você?</strong>
+            </p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Uso consciente da tecnologia — Informação, equilíbrio e bem-estar.</p>
+    </footer>
+
+</body>
+</html>
